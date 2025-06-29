@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full fadein">
       <section className="flex flex-col absolute bottom-0 right-0 text-white p-4 gap-2">
         <a
           href="mailto:angelosabornido992@gmail.com"

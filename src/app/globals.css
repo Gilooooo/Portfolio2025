@@ -37,3 +37,16 @@ body {
 .scroll-thin::-webkit-scrollbar-track {
   background: transparent;
 }
+
+.fadein{
+  animation: fadein 2s ease-in-out forwards;
+}
+
+@keyframes fadein{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  } 
+}
