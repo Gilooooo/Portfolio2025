@@ -7,51 +7,13 @@ export default function Certificates() {
   ];
 
   return (
-    <div className="flex justify-center items-center h-full w-full fadein">
-      <section className="bg-red-900 p-3 w-full h-3/4 sm:w-3/4 md:w-2/3 rounded-lg overflow-hidden">
-        <div
-          className="
-            flex 
-            flex-wrap
-            md:flex-nowrap
-            md:overflow-x-auto 
-            scroll-smooth 
-            scroll-thin 
-            md:snap-x 
-            md:snap-mandatory
-            gap-4 
-            h-full
-            justify-center
-            items-center
-          "
-        >
-          {certificates.map((src, index) => (
-            <div
-              key={index}
-              className="
-                snap-center 
-                flex-shrink-0 
-                w-full
-                sm:w-[48%]
-                md:w-[45%] 
-                lg:w-[30%] 
-                bg-black 
-                rounded-lg 
-                overflow-hidden 
-                shadow-md 
-                h-[200px] 
-                sm:h-[250px] 
-                md:h-full
-              "
-            >
-              <img
-                src={src}
-                alt={`Certificate ${index + 1}`}
-                className="w-full h-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
+    <div className="flex justify-center items-center h-full w-full fadein overflow-hidden">
+      <section className="text-gray-400 sm:p-3 w-full h-full flex flex-col items-end sm:gap-16 gap-9 text-end overflow-auto ">
+        <p className="lg:text-6xl md:text-4xl text-3xl">Introduction to Visual Graphic Design</p>
+        <p className="lg:text-6xl md:text-4xl text-3xl">Developing Designs for User Interface</p>
+        <p className="lg:text-6xl md:text-4xl text-3xl">JavaScript for Beginners - The Complete introduction to JS</p>
+        <p className="lg:text-6xl md:text-4xl text-3xl">TailwindCSS from A to Z: Master TailwindCSS Quickly</p>
+        <p className="lg:text-6xl md:text-4xl text-3xl">AMAZING | JavaScript Programming with Examples in One Day</p>
       </section>
     </div>
   );
