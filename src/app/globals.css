@@ -3,13 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-orbitron); /* ✅ NEW: Orbitron variable */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +19,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: monospace;
+  font-family: var(--font-display), sans-serif; /* ✅ use Orbitron */
 }
 
 .scroll-thin {
@@ -33,20 +30,18 @@ body {
   width: 0;
   height: 0;
 }
-
 .scroll-thin::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.fadein{
+.fadein {
   animation: fadein 2s ease-in-out forwards;
 }
-
-@keyframes fadein{
-  from{
+@keyframes fadein {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
-  } 
+  }
 }
