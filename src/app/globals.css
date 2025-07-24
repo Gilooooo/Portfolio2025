@@ -24,15 +24,20 @@ body {
 
 .scroll-thin {
   scrollbar-width: thin;
-  scrollbar-color: var(--foreground) transparent;
+  scrollbar-color: rgba(247, 247, 247, 0.6) transparent;
 }
 .scroll-thin::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  width: 6px;
+  height: 6px;
 }
 .scroll-thin::-webkit-scrollbar-track {
   background: transparent;
 }
+.scroll-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.6);
+  border-radius: 4px;
+}
+
 
 .fadein {
   animation: fadein 2s ease-in-out forwards;

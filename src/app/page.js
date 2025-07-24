@@ -61,7 +61,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 p-4 lg:p-7">
+    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 p-4 lg:p-7 fadein">
       <main className="md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white">
         <div className="text-center text-white">
           <h1 ref={nameRef} className="text-[clamp(1.5rem,8vw,4rem)] font-bold text-center">
