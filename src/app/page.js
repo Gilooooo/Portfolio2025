@@ -22,7 +22,7 @@ export default function Hero() {
         duration: 4,
         scrambleText: {
           text: "ANGELO SABORNIDO",
-          chars: "ЙЦУКЕНГШЩЗХФЫВАПОНЛДЖМЬЧТИЯ",
+          chars: "01",
           revealDelay: 0.7,
           speed: 1,
         },
@@ -32,7 +32,7 @@ export default function Hero() {
         duration: 2,
         scrambleText: {
           text: "Front End Developer and Web Designer",
-          chars: "ЙЦУКЕНГШЩЗХФЫВАПОНЛДЖМЬЧТИЯ",
+          chars: "01",
           revealDelay: 0.7,
           speed: 1,
         },
@@ -61,13 +61,18 @@ export default function Hero() {
   }
 
   return (
-    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 p-4 lg:p-7 fadein">
-      <main className="md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white">
+    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 md:p-3 p-2 lg:p-4 fadein">
+      <main className={`md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white overflow-hidden`}>
         <div className="text-center text-white">
-          <h1 ref={nameRef} className="text-[clamp(1.5rem,8vw,4rem)] font-bold text-center">
+          <h1
+            ref={nameRef}
+            className="xl:text-8xl lg:text-6xl sm:text-5xl text-3xl font-bold text-center animate-pulse"
+          >
             ANGELO SABORNIDO
           </h1>
-          <h2 className="mt-2 text-[clamp(0.5rem,3vw,1rem)]" ref={nameRef2}>Front End Developer and Web Designer</h2>
+          <h2 className="mt-2 text-[clamp(0.5rem,3vw,1rem)]" ref={nameRef2}>
+            Front End Developer and Web Designer
+          </h2>
         </div>
 
         <nav>
@@ -80,19 +85,26 @@ export default function Hero() {
               ["projects", "Projects"],
               ["contact", "Contact"],
             ].map(([key, label]) => (
-              <li key={key}>
-                <button
-                  onClick={() => setActiveSection(key)}
-                  className="hover:text-red-400 transition-colors duration-200"
-                >
-                  {label}
-                </button>
+              <li key={key} className="sm:text-lg text-sm">
+                {activeSection == key ? (
+                  <button className="text-red-500 animate-pulse transition-colors">{label}</button>
+                ) : (
+                  <button
+                    onClick={() => setActiveSection(key)}
+                    className="hover:text-red-400 transition-colors duration-200"
+                  >
+                    {label}
+                  </button>
+                )}
               </li>
             ))}
           </ul>
         </nav>
-
-        <section className="w-full h-full bg-black text-white sm:p-4 p-2 overflow-hidden">
+        <section
+          className={`w-full h-full bg-black text-white  overflow-hidden ${
+            activeSection == "skills" ? "" : "sm:p-4 p-2" 
+          }`}
+        >
           {renderSection()}
         </section>
       </main>

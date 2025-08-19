@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono, Orbitron } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import LoadingWrapper from "@/_Components/Loading";
 
 // Load fonts
 const geistSans = Geist({
@@ -12,10 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
-  subsets: ["latin"],
-  weight: ["400", "700"], // Add more if needed
+const chillax = localFont({
+  src: "./fonts/Chillax-Variable.ttf",
+  variable: "--font-chillax",
+  display: "swap",
 });
 
 export const metadata = {
@@ -27,10 +29,10 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${chillax.variable}`}
     >
-      <body className="font-orbitron antialiased">
-        {children}
+      <body className="antialiased" style={{ fontFamily: "var(--font-chillax), 'Century Gothic'" }}>
+        <LoadingWrapper>{children}</LoadingWrapper>
       </body>
     </html>
   );
