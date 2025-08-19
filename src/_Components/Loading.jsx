@@ -5,9 +5,13 @@ export default function LoadingWrapper({ children }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Shorter delay for mobile devices
+    const isMobile = window.innerWidth < 768;
+    const delay = isMobile ? 500 : 1000;
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, delay);
 
     return () => clearTimeout(timer);
   }, []);
