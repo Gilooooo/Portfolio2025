@@ -17,7 +17,7 @@ export default function Certificates() {
     "Introduction to Visual Graphic Design",
     "Developing Designs for User Interface",
     "JavaScript for Beginners - The Complete introduction to JS",
-    "TailwindCSS from A to Z: Master TailwindCSS Quickly",
+    "TailwindCSS from A to Z: Master Tailwind CSS Quickly",
     "AMAZING | JavaScript Programming with Examples in One Day"
   ];
 

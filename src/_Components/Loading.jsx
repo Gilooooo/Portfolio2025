@@ -7,7 +7,7 @@ export default function LoadingWrapper({ children }) {
   useEffect(() => {
     // Shorter delay for mobile devices
     const isMobile = window.innerWidth < 768;
-    const delay = isMobile ? 500 : 1000;
+    const delay = isMobile ? 300 : 1000;
     
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -18,7 +18,7 @@ export default function LoadingWrapper({ children }) {
 
   if (isLoading) {
     return (
-        <main className="h-screen flex justify-center items-center bg-black fadeout">
+        <main className="h-screen flex justify-center items-center bg-black">
             <span className="animate-pulse">Angelo Sabornido</span>
         </main>
     );

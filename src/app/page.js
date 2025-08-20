@@ -8,6 +8,7 @@ import Skills from "@/_Components/Skills/Skills";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { Braces, Brain, House, Medal, Phone, User } from "lucide-react";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
@@ -76,7 +77,7 @@ export default function Hero() {
         </div>
 
         <nav>
-          <ul className="flex flex-wrap justify-center items-center sm:gap-4 gap-3 text-white">
+          <ul className="flex flex-wrap justify-center items-center sm:gap-4 gap-5 text-white relative">
             {[
               ["home", "Home"],
               ["about", "About Me"],
@@ -85,7 +86,7 @@ export default function Hero() {
               ["projects", "Projects"],
               ["contact", "Contact"],
             ].map(([key, label]) => (
-              <li key={key} className="sm:text-lg text-sm">
+              <li key={key} className="sm:text-lg text-sm sm:block hidden">
                 {activeSection == key ? (
                   <button className="text-red-500 animate-pulse transition-colors">{label}</button>
                 ) : (
@@ -94,6 +95,27 @@ export default function Hero() {
                     className="hover:text-red-400 transition-colors duration-200"
                   >
                     {label}
+                  </button>
+                )}
+              </li>
+            ))}
+            {[
+              ["home", House],
+              ["about", User],
+              ["certificates", Medal],
+              ["skills", Brain],
+              ["projects", Braces],
+              ["contact", Phone],
+            ].map(([key, Icons]) => (
+              <li key={key} className="sm:text-lg text-sm sm:hidden">
+                {activeSection == key ? (
+                  <button className="text-red-500 animate-pulse transition-color"><Icons size={28} /></button>
+                ) : (
+                  <button
+                    onClick={() => setActiveSection(key)}
+                    className="hover:text-red-400 transition-colors duration-200"
+                  >
+                    <Icons size={28} />
                   </button>
                 )}
               </li>

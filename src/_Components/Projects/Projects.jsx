@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function Projects() {
   const [modalAppear, setModalAppear] = useState(false);
@@ -47,7 +47,7 @@ export default function Projects() {
           <div className="relative lg:max-w-4xl max-w-xl max-h-full p-4 flex flex-col justify-center items-center gap-2 bg-white rounded-2xl">
             <p className="text-center pt-9">{appear}</p>
             <a
-              className="bg-[#b8b8b8] py-1 px-3 text-center max-w-fit rounded-[6px] shine mb-4"
+              className="bg-[#e9e9e969] py-1 px-3 text-center max-w-fit rounded-[6px] shine-button mb-4"
               href={ProjectUrl[index]}
             >
               Try now
