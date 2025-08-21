@@ -39,7 +39,7 @@ export default function Certificates() {
         {certificatesName.map((name, index) => (
           <div key={index} className="flex flex-col items-end ">
             <p 
-              className="lg:text-6xl md:text-4xl text-3xl cursor-pointer shine py-2"
+              className="lg:text-6xl md:text-4xl sm:text-3xl text-2xl cursor-pointer shine py-2"
               onClick={() => openModal(index)}
             >
               {name}
