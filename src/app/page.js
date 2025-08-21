@@ -65,9 +65,9 @@ export default function Hero() {
   return (
     <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 md:p-3 p-2 lg:p-4 fadein">
       <main
-        className={`md:p-5 p-3 bg-black flex sm:flex-col items-center gap-[32px] h-full w-full border-2 border-white overflow-hidden relative`}
+        className={`md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white overflow-hidden relative`}
       >
-        <div className="flex flex-col sm:relative absolute z-10 sm:text-center text-start top-0 left-0 p-4  ">
+        <div className="flex flex-col sm:relative z-10 sm:text-center text-start w-full ">
           <div className="text-white pb-4" >
             <h1
               ref={nameRef}
@@ -133,7 +133,7 @@ export default function Hero() {
         </div>
 
         <section
-          className={`w-full h-full bg-black text-white overflow-hidden pt-20 ${
+          className={`w-full h-full bg-black text-white overflow-hidden ${
             activeSection == "skills" ? "" : "sm:p-4 "
           }`}
         >
