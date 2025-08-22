@@ -28,7 +28,7 @@ export default function Projects() {
       {Projects.map((label, key) => (
         <div key={key}>
           <button
-            className="lg:text-6xl md:text-4xl text-3xl"
+            className="lg:text-6xl md:text-4xl text-3xl text-end"
             onClick={() => {
               openModal(key);
               console.log(label);
@@ -41,7 +41,7 @@ export default function Projects() {
       {/* Modal */}
       {modalAppear && (
         <div
-          className="text-black fixed inset-0 bg-black/75 flex items-center justify-center z-50"
+          className="text-black fixed inset-0 bg-black/75 flex items-center justify-center z-50 px-4"
           onClick={closeModal}
         >
           <div className="relative lg:max-w-4xl max-w-xl max-h-full p-4 flex flex-col justify-center items-center gap-2 bg-white rounded-2xl">
