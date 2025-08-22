@@ -28,7 +28,7 @@ export default function Projects() {
       {Projects.map((label, key) => (
         <div key={key}>
           <button
-            className="lg:text-6xl md:text-4xl text-3xl text-end"
+            className="lg:text-6xl md:text-4xl text-3xl"
             onClick={() => {
               openModal(key);
               console.log(label);
