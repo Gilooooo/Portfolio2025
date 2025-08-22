@@ -4,6 +4,22 @@ import Matter from "matter-js";
 
 export default function MixedShapes() {
   const sceneRef = useRef(null);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const hasThemeClass = document.documentElement.classList.contains('dark') || document.documentElement.classList.contains('light');
+    const currentTheme = hasThemeClass ? document.documentElement.classList.contains('dark') : true;
+    setIsDark(currentTheme);
+    
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     if (!sceneRef.current) return;
 
@@ -35,6 +51,8 @@ export default function MixedShapes() {
     const containerWidth = sceneRef.current.clientWidth;
     const containerHeight = sceneRef.current.clientHeight;
 
+    const canvasBackground = isDark ? "black" : "white";
+
     // create engine
     const engine = Engine.create();
     const world = engine.world;
@@ -46,7 +64,7 @@ export default function MixedShapes() {
       options: {
         width: containerWidth,
         height: containerHeight,
-        background: "black",
+        background: canvasBackground,
         showAngleIndicator: true,
         wireframes: false,
         pixelRatio: window.devicePixelRatio || 1,
@@ -93,10 +111,9 @@ export default function MixedShapes() {
       const body = Bodies.rectangle(x, y, boxWidth, boxHeight, {
         render: {
           stiffness: 0.2,
-          fillStyle: "black",
-          strokeStyle: "white",
+          fillStyle: isDark ? "black" : "white",
+          strokeStyle: isDark ? "white" : "black",
           lineWidth: 1
-          
         },
         chamfer: { radius: 7 }
       });
@@ -112,8 +129,9 @@ export default function MixedShapes() {
       const ctx = render.canvas.getContext('2d');
       const isMobile = containerWidth < 768;
       const fontSize = isMobile ? '12px' : '16px';
+      const textColor = isDark ? 'white' : 'black';
       ctx.font = `${fontSize} Arial`;
-      ctx.fillStyle = 'white';
+      ctx.fillStyle = textColor;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       
@@ -176,11 +194,11 @@ export default function MixedShapes() {
       render.canvas.remove();
       render.textures = {};
     };
-  }, []);
+  }, [isDark]);
 
   return (
     <main className="w-full h-full">
-      <div ref={sceneRef} className="w-full h-full"/>
+      <div ref={sceneRef} className="w-full h-full fadein"/>
     </main>
   );
 }

@@ -8,14 +8,21 @@ import Skills from "@/_Components/Skills/Skills";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
-import { Braces, Brain, House, Medal, Phone, User } from "lucide-react";
+import { Braces, Brain, Circle, House, Medal, Phone, User } from "lucide-react";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
 export default function Hero() {
   const [activeSection, setActiveSection] = useState("home");
+  const [theme, setTheme] = useState("dark");
   const nameRef = useRef(null);
   const nameRef2 = useRef(null);
+
+  const handleThemeChange = (selectedTheme) => {
+    setTheme(selectedTheme);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(selectedTheme);
+  };
 
   useEffect(() => {
     if (nameRef.current) {
@@ -60,10 +67,39 @@ export default function Hero() {
         return <Home />;
     }
   }
+  useEffect(() => {
+    console.log(theme);
+  },[2])
 
   return (
-    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 md:p-3 p-2 lg:p-4 fadein">
-      <main className={`md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white overflow-hidden`}>
+    <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 p-7 fadein relative">
+      <div className="absolute bottom-27 sm:-left-18 -left-18 transform -rotate-90 flex gap-2 text-white sm:text-md text-xs">
+        <div className="flex gap-1 items-center" >
+          <input 
+            type="radio" 
+            name="mode" 
+            id="mode1" 
+            className="sm:h-4 h-3 sm:w-4 w-3"
+            checked={theme === "light"}
+            onChange={() => handleThemeChange("light")}
+          />
+          <label htmlFor="mode1">Light Mode</label>
+        </div>
+        <div className="flex gap-1 items-center">
+          <input 
+            type="radio" 
+            id="mode2" 
+            name="mode" 
+            className="sm:h-4 h-3 sm:w-4 w-3"
+            checked={theme === "dark"}
+            onChange={() => handleThemeChange("dark")}
+          />
+          <label htmlFor="mode2">Dark Mode</label>
+        </div>
+      </div>
+      <main
+        className={`md:p-5 p-3 bg-black flex flex-col items-center gap-[32px] h-full w-full border-2 border-white overflow-hidden`}
+      >
         <div className="text-center text-white">
           <h1
             ref={nameRef}
@@ -76,8 +112,8 @@ export default function Hero() {
           </h2>
         </div>
 
-        <nav>
-          <ul className="flex flex-wrap justify-center items-center sm:gap-4 gap-5 text-white relative">
+        <nav className="flex flex-col gap-4">
+          <ul className="flex flex-wrap justify-center items-center sm:gap-4 xxs:gap-5 gap-3 text-white relative">
             {[
               ["home", "Home"],
               ["about", "About Me"],
@@ -88,11 +124,14 @@ export default function Hero() {
             ].map(([key, label]) => (
               <li key={key} className="sm:text-lg text-sm sm:block hidden">
                 {activeSection == key ? (
-                  <button className="text-red-500 animate-pulse transition-colors">{label}</button>
+                  <button className="text-red-500 animate-pulse transition-colors flex items-center gap-1">
+                    {" "}
+                    <Circle size={8} fill="#F34636 " /> {label}
+                  </button>
                 ) : (
                   <button
                     onClick={() => setActiveSection(key)}
-                    className="hover:text-red-400 transition-colors duration-200"
+                    className="hover:text-red-400 transition-colors duration-200 "
                   >
                     {label}
                   </button>
@@ -109,7 +148,9 @@ export default function Hero() {
             ].map(([key, Icons]) => (
               <li key={key} className="sm:text-lg text-sm sm:hidden">
                 {activeSection == key ? (
-                  <button className="text-red-500 animate-pulse transition-color"><Icons size={28} /></button>
+                  <button className="text-red-500 animate-pulse transition-color">
+                    <Icons size={28} />
+                  </button>
                 ) : (
                   <button
                     onClick={() => setActiveSection(key)}
@@ -121,10 +162,13 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+          <p className="sm:hidden block text-center text-sm animate-pulse">
+            {activeSection.toUpperCase()}
+          </p>
         </nav>
         <section
-          className={`w-full h-full bg-black text-white  overflow-hidden ${
-            activeSection == "skills" ? "" : "sm:p-4 p-2" 
+          className={`w-full h-full bg-black text-white overflow-hidden ${
+            activeSection == "skills" ? "" : "sm:p-4 p-2"
           }`}
         >
           {renderSection()}
