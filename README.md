@@ -8,9 +8,8 @@ Built with **Next.js**, **React**, **Tailwind CSS**, and deployed on [Vercel](ht
 ## 🚀 Features
 - Modern, responsive design
 - Dark/Light mode support
-- Smooth animations (Framer Motion, Tailwind utilities)
-- Interactive project showcase
-- Contact form integration
+- Smooth animations (Tailwind utilities)
+- Interactive project showcase (Matter Js)
 - Optimized for performance and SEO
 
 ---
@@ -18,7 +17,6 @@ Built with **Next.js**, **React**, **Tailwind CSS**, and deployed on [Vercel](ht
 ## 🛠️ Tech Stack
 - **Framework:** [Next.js](https://nextjs.org/)  
 - **Frontend:** [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/)  
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)  
 - **Deployment:** [Vercel](https://vercel.com/)  
 
 ---
