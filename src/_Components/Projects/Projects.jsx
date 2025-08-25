@@ -5,11 +5,15 @@ export default function Projects() {
   const [appear, setAppear] = useState("");
   const [index, setIndex] = useState(null);
 
-  const Projects = ["Marci Metzger Recreate"];
+  const Projects = ["Marci Metzger Recreate", "Ojt Tracking System"];
   const ProjectQuote = [
     "A complete redesign of the Marci Metzger website. I recreated the entire UI with a fresh, modern design approach—focusing on clean layouts, professional aesthetics, and improved user experience.",
+    "Currently this is under construction",
   ];
-  const ProjectUrl = ["https://marci-metzger-sooty.vercel.app"];
+  const ProjectUrl = [
+    "https://marci-metzger-sooty.vercel.app",
+    "Under Construction",
+  ];
 
   const openModal = (index) => {
     setIndex(index);
@@ -25,19 +29,21 @@ export default function Projects() {
 
   return (
     <div className="fadein w-full h-full text-end">
-      {Projects.map((label, key) => (
-        <div key={key}>
-          <button
-            className="lg:text-6xl md:text-4xl text-3xl text-end"
-            onClick={() => {
-              openModal(key);
-              console.log(label);
-            }}
-          >
-            {label}
-          </button>
-        </div>
-      ))}
+      <div className="flex flex-col sm:gap-13 gap-5">
+        {Projects.map((label, key) => (
+          <div key={key}>
+            <button
+              className="lg:text-6xl md:text-4xl text-3xl text-end"
+              onClick={() => {
+                openModal(key);
+                console.log(label);
+              }}
+            >
+              {label}
+            </button>
+          </div>
+        ))}
+      </div>
       {/* Modal */}
       {modalAppear && (
         <div
@@ -46,12 +52,21 @@ export default function Projects() {
         >
           <div className="relative lg:max-w-4xl max-w-xl max-h-full p-4 flex flex-col justify-center items-center gap-2 bg-white rounded-2xl">
             <p className="text-center pt-9">{appear}</p>
-            <a
-              className="bg-[#e9e9e969] py-1 px-3 text-center max-w-fit rounded-[6px] shine-button mb-4"
-              href={ProjectUrl[index]}
-            >
-              Try now
-            </a>
+            {ProjectUrl[index] == "Under Construction" ? (
+              <a
+                className="bg-[#e9e9e969] py-1 px-3 text-center max-w-fit rounded-[6px] shine-button mb-4"
+                href={ProjectUrl[index]}
+              >
+                Under Construction
+              </a>
+            ) : (
+              <a
+                className="bg-[#e9e9e969] py-1 px-3 text-center max-w-fit rounded-[6px] shine-button mb-4"
+                href={ProjectUrl[index]}
+              >
+                Try now
+              </a>
+            )}
             <button
               className="absolute top-4 right-4 text-white text-xs
               bg-gray-500/50 rounded-full w-5 h-5 flex items-center

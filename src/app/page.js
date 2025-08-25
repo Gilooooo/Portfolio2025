@@ -67,9 +67,6 @@ export default function Hero() {
         return <Home />;
     }
   }
-  useEffect(() => {
-    console.log(theme);
-  },[2])
 
   return (
     <div className="bg-black flex items-center justify-center h-[100dvh] gap-16 p-7 fadein relative">
@@ -162,7 +159,7 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-          <p className="sm:hidden block text-center text-sm animate-pulse">
+          <p className="sm:hidden block text-center text-sm animate-pulse text-white">
             {activeSection.toUpperCase()}
           </p>
         </nav>
