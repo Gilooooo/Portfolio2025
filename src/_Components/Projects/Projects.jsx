@@ -55,7 +55,8 @@ export default function Projects() {
             {ProjectUrl[index] == "Under Construction" ? (
               <a
                 className="bg-[#e9e9e969] py-1 px-3 text-center max-w-fit rounded-[6px] shine-button mb-4"
-                href={ProjectUrl[index]}
+                href="#"
+                onClick={(e) => e.preventDefault()}
               >
                 Under Construction
               </a>
