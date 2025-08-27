@@ -8,7 +8,7 @@ export default function Projects() {
   const Projects = ["Marci Metzger Recreate", "Ojt Tracking System", "Recipe Book with AI", "Capstone Autochecker Project"];
   const ProjectQuote = [
     "A complete redesign of the Marci Metzger website. I recreated the entire UI with a fresh, modern design approach—focusing on clean layouts, professional aesthetics, and improved user experience.",
-    "Checking Made easy with OCR"
+    "Checking Made easy with OCR",
     "Currently this is under construction",
     "Currently this is under construction",
   ];
