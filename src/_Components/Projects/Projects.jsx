@@ -9,13 +9,13 @@ export default function Projects() {
   const ProjectQuote = [
     "A complete redesign of the Marci Metzger website. I recreated the entire UI with a fresh, modern design approach—focusing on clean layouts, professional aesthetics, and improved user experience.",
     "Checking Made easy with OCR",
-    "Currently this is under construction",
+    "OJT Tracking System – A lightweight monitoring tool for small companies that host 3–10 interns. Helps track tasks and progress of OJT students in an organized way. Note: Currently this is beta test right now and only non student type is working!",
     "Currently this is under construction",
   ];
   const ProjectUrl = [
     "https://marci-metzger-sooty.vercel.app",
     "https://capstone-auto-checker.vercel.app",
-    "Under Construction",
+    "https://ojt-tracking.vercel.app",
     "Under Construction",
   ];
 
